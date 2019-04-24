@@ -594,7 +594,7 @@ function buildService(ref, service) {
         "@classdesc " + (service.comment || "Represents " + aOrAn(service.name)),
         "@extends $protobuf.rpc.Service",
         "@constructor",
-        "@param {$protobuf.RPCImpl} rpcImpl RPC implementation",
+        "@param {$protobuf.RPCImpl | $protobuf.RPCHandler} rpcImpl RPC implementation",
         "@param {boolean} [requestDelimited=false] Whether requests are length-delimited",
         "@param {boolean} [responseDelimited=false] Whether responses are length-delimited"
     ]);
@@ -613,7 +613,7 @@ function buildService(ref, service) {
             "@function create",
             "@memberof " + exportName(service),
             "@static",
-            "@param {$protobuf.RPCImpl} rpcImpl RPC implementation",
+            "@param {$protobuf.RPCImpl | $protobuf.RPCHandler} rpcImpl RPC implementation",
             "@param {boolean} [requestDelimited=false] Whether requests are length-delimited",
             "@param {boolean} [responseDelimited=false] Whether responses are length-delimited",
             "@returns {" + escapeName(service.name) + "} RPC service. Useful where requests and/or responses are streamed."
